@@ -15,24 +15,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    RPScreenRecorder.shared().startClipBuffering { err in
-      if let err = err {
-        print("error attempting to start buffering \(err.localizedDescription)")
-      } else {
-        print("Clip buffering started.")
-      }
-    }
+//    RPScreenRecorder.shared().startClipBuffering { err in
+//      if let err = err {
+//        print("error attempting to start buffering \(err.localizedDescription)")
+//      } else {
+//        print("Clip buffering started.")
+//      }
+//    }
     return true
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
-    RPScreenRecorder.shared().stopClipBuffering { err in
-      if let err = err {
-        print("Error attempting to stop buffering \(err.localizedDescription)")
-      } else {
-        print("Clip buffering stopped.")
-      }
-    }
+//    RPScreenRecorder.shared().stopClipBuffering { err in
+//      if let err = err {
+//        print("Error attempting to stop buffering \(err.localizedDescription)")
+//      } else {
+//        print("Clip buffering stopped.")
+//      }
+//    }
   }
 
   // MARK: UISceneSession Lifecycle
