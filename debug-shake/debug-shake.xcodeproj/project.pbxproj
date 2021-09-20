@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D456184726F7621700E01D52 /* boing.caf in Resources */ = {isa = PBXBuildFile; fileRef = D456184626F760B000E01D52 /* boing.caf */; };
+		D456184B26F7945B00E01D52 /* ClipRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456184A26F7945B00E01D52 /* ClipRecordViewController.swift */; };
 		D472F51126BC573E003E2F92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472F51026BC573E003E2F92 /* AppDelegate.swift */; };
 		D472F51326BC573E003E2F92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472F51226BC573E003E2F92 /* SceneDelegate.swift */; };
-		D472F51526BC573E003E2F92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472F51426BC573E003E2F92 /* ViewController.swift */; };
 		D472F51826BC573E003E2F92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D472F51626BC573E003E2F92 /* Main.storyboard */; };
 		D472F51A26BC573F003E2F92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D472F51926BC573F003E2F92 /* Assets.xcassets */; };
 		D472F51D26BC573F003E2F92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D472F51B26BC573F003E2F92 /* LaunchScreen.storyboard */; };
@@ -18,10 +18,10 @@
 
 /* Begin PBXFileReference section */
 		D456184626F760B000E01D52 /* boing.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = boing.caf; sourceTree = "<group>"; };
+		D456184A26F7945B00E01D52 /* ClipRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipRecordViewController.swift; sourceTree = "<group>"; };
 		D472F50D26BC573E003E2F92 /* debug-shake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "debug-shake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D472F51026BC573E003E2F92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D472F51226BC573E003E2F92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D472F51426BC573E003E2F92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D472F51726BC573E003E2F92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D472F51926BC573F003E2F92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D472F51C26BC573F003E2F92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 			children = (
 				D472F51026BC573E003E2F92 /* AppDelegate.swift */,
 				D472F51226BC573E003E2F92 /* SceneDelegate.swift */,
-				D472F51426BC573E003E2F92 /* ViewController.swift */,
+				D456184A26F7945B00E01D52 /* ClipRecordViewController.swift */,
 				D472F51626BC573E003E2F92 /* Main.storyboard */,
 				D456184626F760B000E01D52 /* boing.caf */,
 				D472F51926BC573F003E2F92 /* Assets.xcassets */,
@@ -142,7 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D472F51526BC573E003E2F92 /* ViewController.swift in Sources */,
+				D456184B26F7945B00E01D52 /* ClipRecordViewController.swift in Sources */,
 				D472F51126BC573E003E2F92 /* AppDelegate.swift in Sources */,
 				D472F51326BC573E003E2F92 /* SceneDelegate.swift in Sources */,
 			);
