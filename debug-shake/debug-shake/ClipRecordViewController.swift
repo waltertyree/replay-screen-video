@@ -15,7 +15,7 @@ enum DemoType {
 }
 
 class ClipRecordViewController: UIViewController {
-
+  
   //https://fiftysounds.com/royalty-free-music/boing-sound-effects.html
   //License for sound is non attribution, free for personal and commercial use
   let effectSound = AVPlayer(url: Bundle.main.url(forResource: "boing", withExtension: ".caf")!)
@@ -128,7 +128,7 @@ class ClipRecordViewController: UIViewController {
     selectDemoType()
 
     if demo != nil {
-    startTimer()
+      startTimer()
     }
   }
 
