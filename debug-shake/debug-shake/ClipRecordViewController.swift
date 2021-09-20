@@ -15,21 +15,27 @@ enum DemoType {
 }
 
 class ClipRecordViewController: UIViewController {
-  
+
   //https://fiftysounds.com/royalty-free-music/boing-sound-effects.html
   //License for sound is non attribution, free for personal and commercial use
   let effectSound = AVPlayer(url: Bundle.main.url(forResource: "boing", withExtension: ".caf")!)
 
+  //Timer to show the farm animals
   var timer: Timer?
+
+  //Window to hold the recording indicator
   var controlsWindow: UIWindow?
 
+  //Share sheet so we can dismiss it when we're done
   var activtyViewController: UIActivityViewController?
 
 
+  //Enum to put both kinds of recording in one view
   var demo: DemoType? {
     didSet {
       switch demo {
       case .clip:
+        //Standard clip buffering start. This will show the permissions modal
         RPScreenRecorder.shared().startClipBuffering { err in
           if let err = err {
             print("error attempting to start buffering \(err.localizedDescription)")
@@ -49,6 +55,34 @@ class ClipRecordViewController: UIViewController {
     }
   }
 
+  fileprivate func selectDemoType() {
+    if demo == nil {
+      let alert = UIAlertController(title: "Demo Type", message: "Would you like a rolling clip demo or a screen recording demo?", preferredStyle: .alert)
+      let rollingClip = UIAlertAction(title: "Rolling Clip", style: .default) { _ in
+        self.demo = .clip
+      }
+      let recording = UIAlertAction(title: "Screen Recording", style: .default) { _ in
+        self.demo = .recording
+      }
+
+      alert.addAction(rollingClip)
+      alert.addAction(recording)
+
+      self.present(alert, animated: true, completion: nil)
+    }
+  }
+
+  //MARK: View Lifecycle
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    selectDemoType()
+
+    if demo != nil {
+      startTimer()
+    }
+  }
+
+  //MARK: Code to make the animals appear
   fileprivate func randomPoint(in box: CGRect) -> CGPoint {
     let randomX = CGFloat.random(in: 0..<box.width)
     let randomY = CGFloat.random(in: 0..<box.height)
@@ -89,6 +123,7 @@ class ClipRecordViewController: UIViewController {
   }
 
 
+//MARK: Button to Start/Stop Screen Recording
   fileprivate func addRecordingButton() {
     controlsWindow = UIWindow(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 45 + view.safeAreaInsets.top))
     controlsWindow?.windowScene = view.window?.windowScene
@@ -101,39 +136,6 @@ class ClipRecordViewController: UIViewController {
     recordingIndicator.center = CGPoint(x: vc.view.center.x, y: vc.view.center.y + 20)
 
 
-  }
-
-
-
-
-  fileprivate func selectDemoType() {
-    if demo == nil {
-      let alert = UIAlertController(title: "Demo Type", message: "Would you like a rolling clip demo or a screen recording demo?", preferredStyle: .alert)
-      let rollingClip = UIAlertAction(title: "Rolling Clip", style: .default) { _ in
-        self.demo = .clip
-      }
-      let recording = UIAlertAction(title: "Screen Recording", style: .default) { _ in
-        self.demo = .recording
-      }
-
-      alert.addAction(rollingClip)
-      alert.addAction(recording)
-
-      self.present(alert, animated: true, completion: nil)
-    }
-  }
-
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    selectDemoType()
-
-    if demo != nil {
-      startTimer()
-    }
-  }
-
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
   }
 
   @objc func recordingToggled(_ button: UIButton) {
@@ -176,6 +178,7 @@ extension ClipRecordViewController: RPPreviewViewControllerDelegate {
 
 }
 
+//MARK: React to Shaking
 extension ClipRecordViewController {
 
   override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
