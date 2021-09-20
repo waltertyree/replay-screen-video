@@ -90,14 +90,17 @@ class ClipRecordViewController: UIViewController {
 
 
   fileprivate func addRecordingButton() {
-    controlsWindow = UIWindow(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 30 + view.safeAreaInsets.top))
+    controlsWindow = UIWindow(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 45 + view.safeAreaInsets.top))
+    controlsWindow?.windowScene = view.window?.windowScene
+    controlsWindow?.makeKeyAndVisible()
+
     let recordingIndicator = UIButton.systemButton(with: UIImage(systemName: "record.circle")!, target: self, action: #selector(recordingToggled(_:)))
     let vc = UIViewController()
-    vc.view.addSubview(recordingIndicator)
-    controlsWindow?.windowScene = view.window?.windowScene
     controlsWindow?.rootViewController = vc
-    controlsWindow?.makeKeyAndVisible()
-    recordingIndicator.center = vc.view.center
+    vc.view.addSubview(recordingIndicator)
+    recordingIndicator.center = CGPoint(x: vc.view.center.x, y: vc.view.center.y + 20)
+
+
   }
 
 
